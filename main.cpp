@@ -4,7 +4,9 @@
 int main()
 {
     Coordinate coordinate;
-    std::cout << coordinate.x << std::endl;
-    std::cout << coordinate.y << std::endl;
+    coordinate.setX(-10); 
+    coordinate.setY(20);
+    std::cout << coordinate.getX() << std::endl;
+    std::cout << coordinate.getY() << std::endl;
     return 0;
 }
