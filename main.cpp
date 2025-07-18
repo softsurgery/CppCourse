@@ -4,9 +4,14 @@
 int main()
 {
     Coordinate coordinate;
-    coordinate.setX(-10); 
-    coordinate.setY(20);
-    std::cout << coordinate.getX() << std::endl;
-    std::cout << coordinate.getY() << std::endl;
+    coordinate.setX(10);
+    coordinate.setY(10);
+    
+    Coordinate origin(20, 20);
+
+    Coordinate sym = coordinate.determineSymetricalPosition(origin);
+    coordinate.print();
+    origin.print();
+    sym.print();
     return 0;
 }

@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cmath>
+
 #ifndef COORDINATE_HPP
 #define COORDINATE_HPP
 
@@ -40,6 +43,9 @@ public:
     {
         this->y = y;
     }
+
+    Coordinate determineSymetricalPosition(Coordinate coordinate);
+    void print();
 
 private:
     // attributes
