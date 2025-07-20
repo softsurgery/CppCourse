@@ -33,12 +33,12 @@ public:
     }
 
     //desctructor
-    ~Player()
+    virtual ~Player()
     {
         std::cout << "Destructor called" << std::endl;
     }
 
-    void print();
+    virtual void print();
 
 private:
     std::string name;
