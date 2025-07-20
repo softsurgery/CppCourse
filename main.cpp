@@ -1,17 +1,15 @@
 #include <iostream>
-#include "headers/coordinate.hpp"
+#include "headers/Coordinate.hpp"
+#include "headers/Player.hpp"
 
 int main()
 {
-    Coordinate coordinate;
-    coordinate.setX(10);
-    coordinate.setY(10);
+    Player player1("Adam");
+    Player* player2 = new Player("John", 10, 10);
     
-    Coordinate origin(20, 20);
+    player2->print();
+    delete player2;
+    player1.print();
 
-    Coordinate sym = coordinate.determineSymetricalPosition(origin);
-    coordinate.print();
-    origin.print();
-    sym.print();
     return 0;
 }

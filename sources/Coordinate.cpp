@@ -1,4 +1,5 @@
-#include "../headers/coordinate.hpp"
+#include <iostream>
+#include "../headers/Coordinate.hpp"
 
 Coordinate Coordinate::determineSymetricalPosition(Coordinate coordinate)
 {

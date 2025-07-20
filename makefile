@@ -8,10 +8,10 @@ CXXFLAGS = -std=c++17 -Wall -g
 TARGET = program
 
 # Define header files
-HDRS = headers/coordinate.hpp
+HDRS = headers/Coordinate.hpp headers/Player.hpp
 
 # Define source files
-SRCS = main.cpp sources/coordinate.cpp
+SRCS = main.cpp sources/Coordinate.cpp sources/Player.cpp
 
 # Define object files (derived from source files)
 OBJS = $(SRCS:.cpp=.o)
