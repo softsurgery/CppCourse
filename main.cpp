@@ -1,14 +1,15 @@
 #include <iostream>
-#include "headers/Hero.hpp"
+#include "headers/Book.hpp"
+#include "headers/Library.hpp"
 
 int main()
 {
-    Hero player1("Adam");
-    Hero *player2 = new Hero("John", 10, 10);
+    Book book("Le Petit Prince", "Antoine de Saint-Exupéry", "9782753002001", 10.99);
+    Book* book2 = new Book("La Vie de Bohème", "André Gide", "9782753002002", 12.99);
 
-    player2->print();
-    delete player2;
-    player1.print();
-
+    Library lib(1);
+    lib.add(book);
+    lib.add(*book2);
+    lib.display();
     return 0;
 }
