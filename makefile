@@ -8,10 +8,10 @@ CXXFLAGS = -std=c++17 -Wall -g
 TARGET = program
 
 # Define header files
-HDRS = headers/Compte.hpp headers/Client.hpp
+HDRS = headers/Application.hpp headers/Colie.hpp headers/ColieEtr.hpp headers/Livreur.hpp
 
 # Define source files
-SRCS = main.cpp sources/Compte.cpp sources/Client.cpp
+SRCS = main.cpp sources/Application.cpp sources/Colie.cpp sources/ColieEtr.cpp sources/Livreur.cpp
 
 # Define object files (derived from source files)
 OBJS = $(SRCS:.cpp=.o)
