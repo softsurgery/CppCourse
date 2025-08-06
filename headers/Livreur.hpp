@@ -29,6 +29,7 @@ class Livreur {
 
     void addColie(Colie* colie);
     int getColieCountLivreur() const;
+    void calculateCouts();
     bool operator>(const Livreur &other);
     std::string to_string();
 

@@ -13,6 +13,12 @@ void Livreur::addColie(Colie *colie)
         std::cout << "Colie with ID " << colie->getId() << " already exists." << std::endl;
 }
 
+void Livreur::calculateCouts()
+{
+    for (int i = 0; i < colies.size(); i++)
+        colies[i]->calculateCout();
+}
+
 int Livreur::getColieCountLivreur() const
 {
     int count = 0;
@@ -30,7 +36,7 @@ bool Livreur::operator>(const Livreur &other)
 std::string Livreur::to_string(){
     std::string coliesStr = "";
     for (int i = 0; i < colies.size(); i++) {
-        coliesStr += "\n" + colies[i]->to_string();
+        coliesStr += "\nColie " + std::to_string(i) + " : " + colies[i]->to_string() + "\n";
     }
 
     return "CIN : " + cin +
