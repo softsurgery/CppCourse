@@ -28,12 +28,9 @@ void Application::addColieToLivreur(std::string cin, Colie *colie)
 void Application::calculateCouts()
 {
     for(int i = 0; i < livreurs.size(); i++){
-        for(int j = 0; j < livreurs[i]->getColies().size(); j++){
-            livreurs[i]->getColies()[j]->calculateCout();
-        }
+        livreurs[i]->calculateCouts();
     }
 }
-
 
 void Application::displayMaxLivreur()
 {
@@ -51,7 +48,7 @@ void Application::displayMaxLivreur()
 void Application::saveLivreurs(const std::string& filename){
     std::ofstream out(filename);
     for(int i = 0; i < livreurs.size(); i++){
-        out << livreurs[i]->to_string();
+        out << livreurs[i]->to_string() << std::endl;
     }
 }
 
