@@ -30,6 +30,8 @@ class Recrue : public Candidat {
             this->salaire = salaire;
         }
 
+        virtual std::string to_string();
+
     private:
         std::string poste;
         float salaire;

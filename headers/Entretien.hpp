@@ -1,6 +1,7 @@
 #ifndef ENTRETIEN_H
 #define ENTRETIEN_H
 
+#include "Candidat.hpp"
 #include <string>
 #include <vector>
 
@@ -37,6 +38,12 @@ class Entretien {
         void setCins(std::vector<std::string> cins) {
             this->cins = cins;
         }
+
+        int searchCin(std::string cin);
+        void addCin(std::string cin);
+        std::string to_string();
+        int getNbCandidat(std::vector<Candidat*> candidats);
+
     private:
         int id;
         std::string date;

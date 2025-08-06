@@ -31,6 +31,15 @@ public:
     }
     virtual ~Application() {};
 
+    int searchCandidat(std::string cin);
+    void addCandidat(Candidat *candidat);
+    int searchEntretien(int id);
+    void addEntretien(Entretien *entretien);
+    void assignCandidatToEntretien(std::string cin, int id);
+    void displayCandidatsByScore(int score);
+    int countRecrueByPoste(std::string poste);
+    void saveMaxEntretien(const std::string& filename);
+
 private:
     std::string nom;
     std::vector<Candidat *> candidats;

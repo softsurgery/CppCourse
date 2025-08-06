@@ -10,3 +10,15 @@ Candidat& Candidat::operator=(const Candidat& candidat) {
     }
     return *this;
 }
+
+bool Candidat::operator==(const int& score){
+    return this->score == score;
+}
+
+std::string Candidat::to_string(){
+    return "CIN : " + cin +
+    "\nNom : " + nom +
+    "\nPrenom : " + prenom +
+    "\nDiplome : " + diplome +
+    "\nScore : " + std::to_string(score);
+}

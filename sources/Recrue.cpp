@@ -11,3 +11,12 @@ Recrue& Recrue::operator=(const Recrue& recrue) {
     }
     return *this;
 }
+
+std::string Recrue::to_string(){
+    return "CIN : " + cin +
+    "\nNom : " + nom +
+    "\nPrenom : " + prenom +
+    "\nDiplome : " + diplome +
+    "\nPoste : " + poste +
+    "\nSalaire : " + std::to_string(salaire);
+}

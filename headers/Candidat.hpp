@@ -14,6 +14,7 @@ class Candidat {
         }
         Candidat(const Candidat& candidat) : Candidat(candidat.cin, candidat.nom, candidat.prenom, candidat.diplome){}
         Candidat& operator=(const Candidat& candidat);
+        bool operator==(const int &score);
         virtual ~Candidat() {};
 
         std::string getCin() {
@@ -60,6 +61,8 @@ class Candidat {
                 this->score = score;
             }
         }
+
+        virtual std::string to_string();
 
     protected:
         std::string cin;
