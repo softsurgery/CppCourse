@@ -29,6 +29,7 @@ public:
     {
         this->candidats = candidats;
     }
+    std::string to_string();
     virtual ~Application() {};
 
     int searchCandidat(std::string cin);
@@ -38,7 +39,7 @@ public:
     void assignCandidatToEntretien(std::string cin, int id);
     void displayCandidatsByScore(int score);
     int countRecrueByPoste(std::string poste);
-    void saveMaxEntretien(const std::string& filename);
+    void saveMaxEntretien(const std::string &filename);
 
 private:
     std::string nom;

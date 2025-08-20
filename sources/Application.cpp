@@ -18,7 +18,7 @@ int Application::searchCandidat(std::string cin)
 void Application::addCandidat(Candidat *candidat)
 {
     int i = searchCandidat(candidat->getCin());
-    if (i == candidats.size())
+    if (i == -1)
     {
         candidats.push_back(candidat);
         std::cout << "Candidat " << candidat->getCin() << " added." << std::endl;
@@ -43,7 +43,7 @@ int Application::searchEntretien(int id)
 void Application::addEntretien(Entretien *entretien)
 {
     int i = searchEntretien(entretien->getId());
-    if (i == entretiens.size())
+    if (i == -1)
     {
         entretiens.push_back(entretien);
         std::cout << "Entretien " << entretien->getId() << " added." << std::endl;
@@ -103,7 +103,20 @@ void Application::saveMaxEntretien(const std::string &filename)
         if (entretiens[i]->getNbCandidat(this->candidats) > entretiens[maxIndex]->getNbCandidat(this->candidats))
             maxIndex = i;
 
+
     std::ofstream out(filename);
     out << entretiens[maxIndex]->to_string() << std::endl
-        << "Nb de cins : " << entretiens[maxIndex]->getNbCandidat(this->candidats)     << std::endl;
+        << "Nb de cins : " << entretiens[maxIndex]->getNbCandidat(this->candidats) << std::endl;
+}
+
+std::string Application::to_string()
+{
+    std::string str = "Nom : " + nom + "\n";
+    str += "Nb de candidats : " + std::to_string(candidats.size()) + " : \n";
+    for (int i = 0; i < candidats.size(); i++)
+        str += candidats[i]->to_string() + "\n\n";
+    str += "Nb de entretiens : " + std::to_string(entretiens.size()) + " : \n";
+    for (int i = 0; i < entretiens.size(); i++)
+        str += entretiens[i]->to_string() + "\n\n";
+    return str;
 }

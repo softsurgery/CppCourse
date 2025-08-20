@@ -27,7 +27,7 @@ int Entretien::searchCin(std::string cin)
 void Entretien::addCin(std::string cin)
 {
     int i = searchCin(cin);
-    if (i == cins.size())
+    if (i == -1)
     {
         cins.push_back(cin);
         std::cout << "Cin " << cin << " added to entretien " << id << std::endl;
@@ -63,8 +63,9 @@ int Entretien::getNbCandidat(std::vector<Candidat *> candidats)
             j++;
         if (j != candidats.size())
         {
-            recrue = dynamic_cast<Recrue *>(candidats[j]);
-            if (recrue->getPoste().empty()) count++;
+            if (recrue = dynamic_cast<Recrue *>(candidats[j]))
+                if (recrue->getPoste().empty())
+                    count++;
         }
     }
     return count;
