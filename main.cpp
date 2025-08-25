@@ -1,46 +1,45 @@
+#include "headers/classe.hpp"
+#include "headers/enseignant.hpp"
+#include "headers/enseignant_exp.hpp"
+#include "headers/universite.hpp"
 #include <iostream>
-#include <string.h>
-
-#include "headers/Application.hpp"
-#include "headers/Recrue.hpp"
-#include "headers/Entretien.hpp"
-#include "headers/Candidat.hpp"
 
 int main()
 {
-    Candidat c("123456789", "Jean", "Michel", "Licence");
-    std::cout << c.to_string() << std::endl
-              << std::endl;
 
-    Candidat c2("123456788", "Olivier", "Michel", "Master");
-    Candidat c3("123456787", "Benjamin", "David", "Licence");
+    Enseignant e1("1203", "adam", "adam", 200);
+    Enseignant e2("1305", "hamza", "hamza", 50);
+    Enseignant e3("1201", "meryem", "meryem", 150);
+    Enseignant e4(e1);
 
-    Recrue r("123456750", "Jean", "Michel", "Licence", "Recruteur", 2000);
-    std::cout << r.to_string() << std::endl;
+    EnseignantExpert e_exp("5000", "omar", "omat", 70, "lol");
 
-    Application app("Recrutement 2025/2026");
+    Classe cl1("english");
+    Classe cl2("french");
 
-    app.addCandidat(&c);
-    app.addCandidat(&c2);
-    app.addCandidat(&c3);
-    app.addCandidat(&r);
+    cl1.ajouter(e1.getMat());
+    cl1.ajouter(e2.getMat());
 
-    app.addEntretien(new Entretien(1, "20/01/2025"));
-    app.addEntretien(new Entretien(2, "20/02/2025"));
-    app.addEntretien(new Entretien(3, "20/03/2025"));
-    app.addEntretien(new Entretien(4, "20/04/2025"));
+    cl2.ajouter(e2.getMat());
+    cl2.ajouter(e3.getMat());
+    cl2.ajouter(e_exp.getMat());
 
-    std::cout << app.to_string() << std::endl;
+    Universite cl_uni("esprit");
 
-    app.assignCandidatToEntretien("123456789", 1);
-    app.assignCandidatToEntretien("123456788", 2);
-    app.assignCandidatToEntretien("123456787", 1);
+    cl_uni.addEnseignant(&e1);
+    cl_uni.addEnseignant(&e2);
+    cl_uni.addEnseignant(&e4);
+    cl_uni.addEnseignant(&e_exp);
+    cl_uni.addEnseignant(&e1);
 
-    std::cout << app.to_string() << std::endl;
+    cl_uni.addClasse(&cl1, "1203");
+    cl_uni.addClasse(&cl2, "1305");
 
-    app.displayCandidatsByScore(0);
+    std::cout << "\naffiche payment:\n";
+    cl_uni.affiche_pay();
+    std::cout << "\nnbr de classe (e2):" << cl_uni.nbr_classe_aff(e2.getMat()) << std::endl;
 
-    app.saveMaxEntretien("entretien_max.txt");
+    std::cout << "\nbyy\n";
 
     return 0;
 }
